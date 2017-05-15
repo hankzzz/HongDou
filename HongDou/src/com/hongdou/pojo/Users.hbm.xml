@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-27 11:57:15 by Hibernate Tools 5.2.0.Beta1 -->
+<hibernate-mapping>
+    <class name="com.hongdou.pojo.Users" table="USERS" schema="hongdou" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" precision="22" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="10" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="32" not-null="true" />
+        </property>
+        <property name="sex" type="java.lang.Integer">
+            <column name="SEX" precision="22" scale="0" />
+        </property>
+        <property name="picture" type="string">
+            <column name="PICTURE" length="50" not-null="true" />
+        </property>
+         <property name="status" type="java.lang.Integer">
+            <column name="STATUS" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

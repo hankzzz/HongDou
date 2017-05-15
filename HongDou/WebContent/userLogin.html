@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>用户登陆</title>
+    <meta name="description" content="slick Login">
+    <meta name="author" content="Webdesigntuts+">
+    <link rel="stylesheet" type="text/css" href="http://192.168.0.168:8080/HongDou/css/userLogin.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="http://192.168.0.168:8080/HongDou/images/favicon.ico" media="screen" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://192.168.0.168:8080/HongDou/js/jquery-1.8.2.min.js"></script>
+    <script src="http://192.168.0.168:8080/HongDou/js/login.js"></script>
+</head>
+<body>
+    <form id="slick-login">
+        <input type="text" id="name" class="placeholder" placeholder="请输入用户名">
+        <input type="password" id="pwd"  class="placeholder" placeholder="请输入密码">
+        <!-- <input type="submit" value="Log In"> -->
+        <input type="submit" name="" value="Log In" id="sub" onclick="loginAction()"/>
+    </form>
+   <!--  <script type="text/javascript">
+    function checkNull(){
+		var username = $("#username").val();
+		var password = $("#password").val();
+		if(username==null||username==""){
+			alert("用户名不能为空");
+			return false;
+		}
+		if(username!=null&&username!=""){
+			if(password==null||password==""){
+				alert("密码不能为空");
+				return false;
+			}
+		}
+		
+	}
+    </script> -->
+</body>
+ 
+</html>
