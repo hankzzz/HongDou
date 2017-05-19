@@ -3,4 +3,5 @@
 
 <hibernate-reverse-engineering>
   <table-filter match-schema="hongdou" match-name="USERS"/>
+  <table-filter match-schema="hongdou" match-name="QUESTION"/>
 </hibernate-reverse-engineering>

@@ -7,34 +7,15 @@
     <meta name="author" content="Webdesigntuts+">
     <link rel="stylesheet" type="text/css" href="http://192.168.0.168:8080/HongDou/css/userLogin.css" />
     <link rel="shortcut icon" type="image/x-icon" href="http://192.168.0.168:8080/HongDou/images/favicon.ico" media="screen" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
     <script src="http://192.168.0.168:8080/HongDou/js/jquery-1.8.2.min.js"></script>
-    <script src="http://192.168.0.168:8080/HongDou/js/login.js"></script>
 </head>
 <body>
-    <form id="slick-login">
-        <input type="text" id="name" class="placeholder" placeholder="请输入用户名">
-        <input type="password" id="pwd"  class="placeholder" placeholder="请输入密码">
+    <form id="slick-login" action="user/login" method="post">
+        <input type="text" id="name"  name="username" class="placeholder" placeholder="请输入用户名">
+        <input type="password" id="pwd"  name="password" class="placeholder" placeholder="请输入密码">
         <!-- <input type="submit" value="Log In"> -->
-        <input type="submit" name="" value="Log In" id="sub" onclick="loginAction()"/>
+        <input type="submit" name="" value="Log In" id="sub"/>
     </form>
-   <!--  <script type="text/javascript">
-    function checkNull(){
-		var username = $("#username").val();
-		var password = $("#password").val();
-		if(username==null||username==""){
-			alert("用户名不能为空");
-			return false;
-		}
-		if(username!=null&&username!=""){
-			if(password==null||password==""){
-				alert("密码不能为空");
-				return false;
-			}
-		}
-		
-	}
-    </script> -->
 </body>
- 
 </html>

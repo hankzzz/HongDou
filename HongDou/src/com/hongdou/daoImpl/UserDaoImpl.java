@@ -38,7 +38,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 				.setParameter("p", password).uniqueResult();
 		return user;
 	}
-
+/*
 	// 修改密码
 	public boolean changePassWord(String newPassWord, Integer userid) {
 		Session session = sessionFactory.openSession();
@@ -77,13 +77,5 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 		tr.commit();
 		session.close();
 	}
-
-	// 展示用户个人信息
-	@Override
-	public Users showUser(int userid) {
-		Users user = (Users) sessionFactory.getCurrentSession().createQuery("from Users where id=:i")
-				.setInteger("i", userid).uniqueResult();
-		return user;
-	}
-
+*/
 }

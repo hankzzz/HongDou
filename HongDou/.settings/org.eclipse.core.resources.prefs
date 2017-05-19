@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
-encoding//WebContent/index.html=UTF-8
+encoding//WebContent/index.jsp=UTF-8
+encoding//WebContent/success.html=UTF-8
+encoding//WebContent/wangEditor-2.1.23/bower.json=UTF-8
 encoding/<project>=UTF-8

@@ -17,12 +17,12 @@
 	<bean id="dataSource"
 		class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass"
-			value="oracle.jdbc.OracleDriver">
+			value="com.mysql.jdbc.Driver">
 		</property>
 		<property name="jdbcUrl"
-			value="jdbc:oracle:thin:@localhost:1521:ORCL">
+			value="jdbc:mysql://47.93.202.56:3306/hongdou">
 		</property>
-		<property name="user" value="hongdou"></property>
+		<property name="user" value="root"></property>
 		<property name="password" value="xianrenqiu"></property>
 		<property name="maxPoolSize" value="40"></property>
 		<property name="minPoolSize" value="1"></property>
@@ -39,7 +39,7 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">
-					org.hibernate.dialect.Oracle10gDialect
+					org.hibernate.dialect.MySQLDialect
 				</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
@@ -49,6 +49,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/hongdou/pojo/Users.hbm.xml</value>
+				<value>com/hongdou/pojo/Question.hbm.xml</value>
 			</list>
 		</property>
 	</bean>

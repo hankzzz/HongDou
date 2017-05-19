@@ -19,23 +19,15 @@ public class UserBizImpl implements UserBiz {
 	// 用户登陆
 	@Override
 
-	public HongDouResult login(String username, String password) {
+	public Users login(String username, String password) {
 		// TODO Auto-generated method stub
-		HongDouResult result = new HongDouResult();
 		Users user = userDao.login(username, password);
-		if(user!=null){
-			result.setObject(user);
-			result.setStatus(true);
-		}else{
-			result.setStatus(false);
-			result.setMessage("用户名或密码错误！");
-		}
-		return result;
+		return user;
 	}
 
 	/**
 	 * 修改密码
-	 */
+	 *//*
 	public boolean changePassWord(String newPassWord, Integer userid) {
 		userDao.changePassWord(newPassWord, userid);
 		return true;
@@ -52,10 +44,5 @@ public class UserBizImpl implements UserBiz {
 	public void updatePhoto(Users user, String file) {
 		this.userDao.updatePhoto(user, file);
 	}
-
-	// 展示用户个人信息
-	@Override
-	public Users showUser(int userid) {
-		return userDao.showUser(userid);
-	}
+*/
 }
