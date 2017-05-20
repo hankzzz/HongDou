@@ -10,7 +10,9 @@ public interface QuestionDao {
 	public Question addQuestion(Question question);
 	//根据id查看问题记录
 	public Question showQuestionById(int questionId);
-	//查询所有问题
-	public List<Question> listOfQuestion();
+	//分页查询所有问题
+	public List<Question> listOfQuestion(int offset,int pageSize);
+	//查询所有问题记录数
+	public int getAllrowCount();
 
 }

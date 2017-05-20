@@ -17,8 +17,8 @@
 		<c:otherwise>ee</c:otherwise>
 	</c:choose><br/>
 	<span>可用操作：
-	<a href="">查看bug记录</a><br/>
-	<a href="">添加bug记录</a>
+	<a href="${pageContext.request.contextPath}/question/listOfQuestion">查看bug记录</a><br/>
+	<a href="${pageContext.request.contextPath}/user/index.html">添加bug记录</a>
 	</span>
 </body>
 </html>

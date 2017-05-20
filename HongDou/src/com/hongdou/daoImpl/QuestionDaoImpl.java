@@ -60,11 +60,18 @@ public class QuestionDaoImpl extends HibernateDaoSupport implements QuestionDao 
 	}
 	//查询所有问题
 	@Override
-	public List<Question> listOfQuestion() {
-		Session session = sessionFactory.openSession();
-		Transaction tr = session.beginTransaction();
-		List<Question> list = session.createQuery("from Question t where t.status=0").list();
-		return null;
+	public List<Question> listOfQuestion(int offset,int pageSize) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Question t where t.status=0");
+		query.setFirstResult(offset);
+		query.setMaxResults(pageSize);
+		return query.list();
+	}
+	//查询所有问题记录数
+	@Override
+	public int getAllrowCount() {
+		Long count=(Long) sessionFactory.getCurrentSession().createQuery("select count(*) from Question q where q.status=0 ").uniqueResult();
+		return count.intValue();
 	}
 
 }

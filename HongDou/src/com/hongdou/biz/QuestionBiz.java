@@ -1,7 +1,8 @@
 package com.hongdou.biz;
 
+
 import com.hongdou.pojo.Question;
-import com.hongdou.utils.HongDouResult;
+import com.hongdou.pojo.Page;
 
 public interface QuestionBiz {
 	// 用户添加问题
@@ -9,5 +10,9 @@ public interface QuestionBiz {
 
 	// 根据id查看问题记录
 	public Question showQuestionById(int questionId);
+	
+	//查询所有问题
+	public Page listOfQuestion(int currentPage,int pageSize);
+	
 
 }
