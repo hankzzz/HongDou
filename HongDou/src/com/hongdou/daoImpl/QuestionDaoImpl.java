@@ -3,6 +3,7 @@ package com.hongdou.daoImpl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -47,31 +48,53 @@ public class QuestionDaoImpl extends HibernateDaoSupport implements QuestionDao 
 		return question;
 	}
 
-	//根据id查看问题记录
+	// 根据id查看问题记录
 	@Override
 	public Question showQuestionById(int questionId) {
-		Session session = sessionFactory.openSession();
-		Transaction tr = session.beginTransaction();
-		String hql = "select t.id from Question t  where t.id = " + questionId;
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "from Question t  where t.id = " + questionId;
 		Question question = (Question) session.createQuery(hql).uniqueResult();
-		tr.commit();
-		session.close();
 		return question;
 	}
-	//查询所有问题
+
+	// 查询所有问题
 	@Override
-	public List<Question> listOfQuestion(int offset,int pageSize) {
+	public List<Question> listOfQuestion(int offset, int pageSize) {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from Question t where t.status=0");
 		query.setFirstResult(offset);
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
-	//查询所有问题记录数
+
+	// 查询所有问题记录数
 	@Override
 	public int getAllrowCount() {
-		Long count=(Long) sessionFactory.getCurrentSession().createQuery("select count(*) from Question q where q.status=0 ").uniqueResult();
+		Long count = (Long) sessionFactory.getCurrentSession()
+				.createQuery("select count(*) from Question q where q.status=0 ").uniqueResult();
 		return count.intValue();
+	}
+	// 根据关键字搜索问题
+
+	@Override
+	public List<Question> findQuestionByKeyword(String keyword) {
+
+		List<Question> list = sessionFactory.getCurrentSession()
+				.createQuery("from Question q where instr(lower(q.title),'" + keyword
+						+ "')>0 and q.status=0  or instr(lower(q.content),'" + keyword
+						+ "')>0 and q.status=0 order by q.pageview desc")
+				.list();// 默认按浏览量排序
+		if (list.size() > 0) {
+			for (int i = 0; i < list.size(); i++) {
+				list.get(i).setTitle(
+						list.get(i).getTitle().replaceAll(keyword, "<font color='red'>" + keyword + "</font>"));
+				list.get(i).setContent(
+						list.get(i).getContent().replaceAll(keyword, "<font color='red'>" + keyword + "</font>"));
+			}
+
+		}
+		return list;
+
 	}
 
 }

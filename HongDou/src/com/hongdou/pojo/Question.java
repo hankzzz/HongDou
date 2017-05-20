@@ -19,11 +19,12 @@ public class Question implements java.io.Serializable {
 	private Integer pageview;
 	private Integer commentcount;
 	private Integer status;
+	private String author;
 
 	public Question() {
 	}
 
-	public Question(Integer id, String title, String content,Date publishtime,Integer type,Integer userid ,Integer pageview,Integer commentcount,Integer status) {
+	public Question(Integer id, String title, String content,Date publishtime,Integer type,Integer userid ,Integer pageview,Integer commentcount,Integer status,String author) {
 	
 		this.id = id;
 	    this.title = title;
@@ -34,6 +35,7 @@ public class Question implements java.io.Serializable {
 	    this.pageview = pageview;
 	    this.commentcount = commentcount;
 	    this.status = status;
+	    this.setAuthor(author);
 	}
 
 	public Integer getId() {
@@ -106,6 +108,14 @@ public class Question implements java.io.Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	

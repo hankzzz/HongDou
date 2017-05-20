@@ -35,11 +35,10 @@ public class QuestionController {
 
 	// 根据id查看问题记录
 	@RequestMapping("/showQuestionByTime")
-	public String showQuestionByTime(HttpSession httpSession) {
-		Users user = (Users) httpSession.getAttribute("user");
-		Question question = questionBiz.showQuestionById(user.getId());
+	public String showQuestionByTime(HttpSession httpSession, int questionId) {
+		Question question = questionBiz.showQuestionById(questionId);
 		httpSession.setAttribute("question", question);
-		return "user/bugdetail";
+		return "user/question/questionDetail";
 	}
 
 	// 查询所有问题
@@ -58,7 +57,19 @@ public class QuestionController {
 		list.addAll(page.getList());
 		model.put("page", page);
 		model.put("list", list);
-		return "user/listOfQuestion";						
+		return "user/question/listOfQuestion";
+	}
+
+	// 根据关键字搜索问题
+	@RequestMapping("/findQuestionByKeyword")
+	public String findQuestionByKeyword(Map<String, Object> model, String keyword) {
+		if (keyword != null) {
+			List<Question> list = questionBiz.findQuestionByKeyword(keyword);
+			model.put("list", list);
+			return "user/question/findResultByKeyWord";
+		} else {
+			return "";
+		}
 
 	}
 
