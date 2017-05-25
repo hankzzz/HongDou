@@ -30,7 +30,7 @@ public class UserController {
 			httpSession.setAttribute("user", u);
 			return "index";
 		}else{
-			return "userLogin";
+			return "login";
 		}
-}
+   }
 }

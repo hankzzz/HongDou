@@ -4,9 +4,6 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
-	<welcome-file-list>
-		<welcome-file>userLogin.jsp</welcome-file>
-	</welcome-file-list>
 	<!-- 加到任何servlet映射的顶部,不然可能有些路径不能被过滤到
          http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/3.2/index.html
      -->
@@ -31,9 +28,6 @@
     </welcome-file-list>
      <!-- 分割线 -->
 	<display-name>springMVC</display-name>
-	<welcome-file-list>
-		<welcome-file>userLogin.jsp</welcome-file>
-	</welcome-file-list>
 	<!-- 指定Spring配置文件的位置 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
